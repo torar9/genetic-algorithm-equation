@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE QtCreatorProject>
-<!-- Written by QtCreator 4.13.2, 2020-11-05T15:16:40. -->
+<!-- Written by QtCreator 4.13.2, 2020-11-05T18:23:25. -->
 <qtcreator>
  <data>
   <variable>EnvironmentId</variable>
@@ -167,12 +167,12 @@
     <valuelist type="QVariantList" key="CustomOutputParsers"/>
     <value type="int" key="PE.EnvironmentAspect.Base">2</value>
     <valuelist type="QVariantList" key="PE.EnvironmentAspect.Changes"/>
-    <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName">geneticalgorithm2</value>
-    <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">PythonEditor.RunConfiguration./run/media/tom/mistni-disk/stažené/osu/sofco/projekt2/genetic-algorithm-equation/app/geneticalgorithm.py</value>
-    <value type="QString" key="ProjectExplorer.RunConfiguration.BuildKey">/run/media/tom/mistni-disk/stažené/osu/sofco/projekt2/genetic-algorithm-equation/app/geneticalgorithm.py</value>
+    <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName">main2</value>
+    <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">PythonEditor.RunConfiguration./run/media/tom/mistni-disk/stažené/osu/sofco/projekt2/genetic-algorithm-equation/app/main.py</value>
+    <value type="QString" key="ProjectExplorer.RunConfiguration.BuildKey">/run/media/tom/mistni-disk/stažené/osu/sofco/projekt2/genetic-algorithm-equation/app/main.py</value>
     <value type="bool" key="PythonEditor.RunConfiguation.Buffered">false</value>
     <value type="QString" key="PythonEditor.RunConfiguation.Interpreter">{3dd3ba7b-73f7-474f-8a0c-6c45b03e36bf}</value>
-    <value type="QString" key="PythonEditor.RunConfiguation.Script">/run/media/tom/mistni-disk/stažené/osu/sofco/projekt2/genetic-algorithm-equation/app/geneticalgorithm.py</value>
+    <value type="QString" key="PythonEditor.RunConfiguation.Script">/run/media/tom/mistni-disk/stažené/osu/sofco/projekt2/genetic-algorithm-equation/app/main.py</value>
     <value type="QString" key="RunConfiguration.Arguments"></value>
     <value type="bool" key="RunConfiguration.Arguments.multi">false</value>
     <value type="QString" key="RunConfiguration.OverrideDebuggerStartup"></value>
@@ -245,12 +245,12 @@
     <valuelist type="QVariantList" key="CustomOutputParsers"/>
     <value type="int" key="PE.EnvironmentAspect.Base">2</value>
     <valuelist type="QVariantList" key="PE.EnvironmentAspect.Changes"/>
-    <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName">main2</value>
-    <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">PythonEditor.RunConfiguration./run/media/tom/mistni-disk/stažené/osu/sofco/projekt2/genetic-algorithm-equation/app/main.py</value>
-    <value type="QString" key="ProjectExplorer.RunConfiguration.BuildKey">/run/media/tom/mistni-disk/stažené/osu/sofco/projekt2/genetic-algorithm-equation/app/main.py</value>
+    <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName">GeneticAlgorithm</value>
+    <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">PythonEditor.RunConfiguration./run/media/tom/mistni-disk/stažené/osu/sofco/projekt2/genetic-algorithm-equation/app/GeneticAlgorithm.py</value>
+    <value type="QString" key="ProjectExplorer.RunConfiguration.BuildKey">/run/media/tom/mistni-disk/stažené/osu/sofco/projekt2/genetic-algorithm-equation/app/GeneticAlgorithm.py</value>
     <value type="bool" key="PythonEditor.RunConfiguation.Buffered">false</value>
     <value type="QString" key="PythonEditor.RunConfiguation.Interpreter"></value>
-    <value type="QString" key="PythonEditor.RunConfiguation.Script">/run/media/tom/mistni-disk/stažené/osu/sofco/projekt2/genetic-algorithm-equation/app/main.py</value>
+    <value type="QString" key="PythonEditor.RunConfiguation.Script">/run/media/tom/mistni-disk/stažené/osu/sofco/projekt2/genetic-algorithm-equation/app/GeneticAlgorithm.py</value>
     <value type="QString" key="RunConfiguration.Arguments"></value>
     <value type="bool" key="RunConfiguration.Arguments.multi">false</value>
     <value type="QString" key="RunConfiguration.OverrideDebuggerStartup"></value>
@@ -323,12 +323,12 @@
     <valuelist type="QVariantList" key="CustomOutputParsers"/>
     <value type="int" key="PE.EnvironmentAspect.Base">2</value>
     <valuelist type="QVariantList" key="PE.EnvironmentAspect.Changes"/>
-    <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName">chromosome2</value>
-    <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">PythonEditor.RunConfiguration./run/media/tom/mistni-disk/stažené/osu/sofco/projekt2/genetic-algorithm-equation/app/chromosome.py</value>
-    <value type="QString" key="ProjectExplorer.RunConfiguration.BuildKey">/run/media/tom/mistni-disk/stažené/osu/sofco/projekt2/genetic-algorithm-equation/app/chromosome.py</value>
+    <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName">Chromosome</value>
+    <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">PythonEditor.RunConfiguration./run/media/tom/mistni-disk/stažené/osu/sofco/projekt2/genetic-algorithm-equation/app/Chromosome.py</value>
+    <value type="QString" key="ProjectExplorer.RunConfiguration.BuildKey">/run/media/tom/mistni-disk/stažené/osu/sofco/projekt2/genetic-algorithm-equation/app/Chromosome.py</value>
     <value type="bool" key="PythonEditor.RunConfiguation.Buffered">false</value>
     <value type="QString" key="PythonEditor.RunConfiguation.Interpreter"></value>
-    <value type="QString" key="PythonEditor.RunConfiguation.Script">/run/media/tom/mistni-disk/stažené/osu/sofco/projekt2/genetic-algorithm-equation/app/chromosome.py</value>
+    <value type="QString" key="PythonEditor.RunConfiguation.Script">/run/media/tom/mistni-disk/stažené/osu/sofco/projekt2/genetic-algorithm-equation/app/Chromosome.py</value>
     <value type="QString" key="RunConfiguration.Arguments"></value>
     <value type="bool" key="RunConfiguration.Arguments.multi">false</value>
     <value type="QString" key="RunConfiguration.OverrideDebuggerStartup"></value>

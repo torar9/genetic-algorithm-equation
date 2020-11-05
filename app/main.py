@@ -3,10 +3,11 @@ import sys
 import os
 
 from PySide2 import QtCore
-from PySide2.QtWidgets import QApplication, QWidget, QPushButton, QLineEdit
+from PySide2.QtWidgets import QApplication, QWidget, QLineEdit
 from PySide2.QtCore import QFile
 from PySide2.QtUiTools import QUiLoader
-
+from GeneticAlgorithm import GeneticAlgorithm
+from Chromosome import Chromosome
 
 class MainWin(QWidget):
     def __init__(self):
@@ -14,10 +15,30 @@ class MainWin(QWidget):
         self.load_ui()
 
     def findButtonClick(self):
+        wantedResult = int(self.ui.wantedLine.text())
         population = int(self.ui.populationLine.text())
-        wanted = int(self.ui.wantedLine.text())
-        print("pop: ", population)
-        print("want: ", wanted)
+        parentLen = 6
+        mutationRate = 0.1
+
+        alg = GeneticAlgorithm(wantedResult, population, parentLen, mutationRate)
+        alg.generatePopulation()
+
+        result: Chromosome
+        generation = 0
+        while True:
+            generation += 1
+            print("Generation: ", generation)
+            alg.calculateObjectiveValues()
+            alg.calculateFitnessValues()
+
+            alg.doRouleteWheel()
+
+            alg.doCrossOverAndMutate()
+            result = alg.checkIfFinished()
+            if result is not None:
+                break
+
+        print("%d + %d + %d = %d" %(result.a, result.b, result.c, wantedResult))
 
     def load_ui(self):
         loader = QUiLoader()

@@ -1,22 +1,27 @@
 import random as rnd
+import math
 from decimal import *
 from Chromosome import Chromosome
 
-class GeneticAlgorithm():
-    chromosomes = []
-    parents = []
 
-    def __init__(self, wantedResult: int, population: int, parentLen: int, mutationRate: int, mutationChance: int):
+class GeneticAlgorithm():
+    def __init__(self, wantedResult: int, population: int, parentLen: int, mutationRate: int):
         self.wantedResult = abs(wantedResult)
         self.population = population
         self.parentLen = parentLen
         self.matePos = 1
         self.mutationRate = mutationRate
-        self.mutationChance = mutationChance
+        self.id = 0
+        self.chromosomes = []
+        self.parents = []
 
     def generatePopulation(self):
         for i in range(self.population):
-            self.chromosomes.append(Chromosome(rnd.randint(0, self.wantedResult), rnd.randint(0, self.wantedResult), rnd.randint(0, self.wantedResult)))
+            self.chromosomes.append(
+                Chromosome(
+                    rnd.randint(0, 255),
+                    rnd.randint(0, 255),
+                    rnd.randint(0, 255)))
 
     def calculateObjectiveValues(self):
         for e in self.chromosomes:
@@ -36,6 +41,7 @@ class GeneticAlgorithm():
             e.propEnd = sum
 
     def doRouleteWheel(self):
+        self.parents = []
         for _ in range(self.parentLen):
             x = Decimal(rnd.uniform(0, 1))
             for n in self.chromosomes:
@@ -43,36 +49,39 @@ class GeneticAlgorithm():
                     self.parents.append(n)
 
     def doCrossOverAndMutate(self):
-        pos = 0
-        for i in range(int(self.parentLen / 2)):
-            mom: Chromosome = self.parents[i]
-            dad: Chromosome = self.parents[i + 1]
+        for _ in range(2):
+            for i in range(int(self.parentLen / 2)):
+                mom: Chromosome = self.parents[i]
+                dad: Chromosome = self.parents[i + 1]
 
-            momChrom: str = mom.getBits()
-            dadChrom: str = dad.getBits()
+                momChrom: str = mom.getBits()
+                dadChrom: str = dad.getBits()
 
-            tmpM = momChrom[23:]
-            tmpD = dadChrom[23:]
-            momChrom = momChrom[:23] + tmpD
-            dadChrom = dadChrom[:23] + tmpM
+                crossPos = rnd.randint(1, 24)
 
-            for _ in range(self.mutationRate):
-                x = rnd.randint(1, 100)
-                if x <= self.mutationChance:
-                    pos = rnd.randint(0, 24)
-                    momChrom = momChrom[:pos - 1] + str(rnd.randint(0, 1)) + momChrom[pos:]
-                    dadChrom = dadChrom[:pos - 1] + str(rnd.randint(0, 1)) + dadChrom[pos:]
-            pos += 2;
+                child = ""
+                for x in range(24):
+                    if x < crossPos:
+                        child += momChrom[x]
+                    else:
+                        child += dadChrom[x]
 
-            mom.a = int(momChrom[:8], 2)
-            dad.a = int(dadChrom[:8], 2)
-            mom.b = int(momChrom[8:16], 2)
-            dad.b = int(dadChrom[8:16], 2)
-            mom.c = int(momChrom[16:24], 2)
-            dad.c = int(dadChrom[16:24], 2)
+                chance = rnd.uniform(0, 1)
+                if chance < self.mutationRate:
+                    for _ in range(math.ceil(24 * self.mutationRate)):
+                        pos = rnd.randint(0, 24 - 1)
+                        new = child[pos]
 
-            self.parents[i] = dad
-            self.parents[i + 1] = mom
+                        if new == "1":
+                            new = "0"
+                        else:
+                            new = "1"
+
+                        child = child[:pos] + new + child[pos + 1:]
+
+                childChrom = Chromosome(int(child[:8], 2), int(child[8:16], 2), int(child[16:24], 2))
+                self.chromosomes.append(childChrom)
+                self.chromosomes.pop(0)
 
     def checkIfFinished(self) -> Chromosome:
         for e in self.chromosomes:
@@ -83,3 +92,6 @@ class GeneticAlgorithm():
     def printChromosomes(self):
         for e in self.chromosomes:
             print("a: %3d b: %3d c: %3d obj: %3d fitt: %f prop: %f propStart: %f propEnd: %f" %(e.a, e.b, e.c, e.objValue, e.fitValue, e.propability, e.propStart, e.propEnd))
+
+    def printParents(self):
+        print("parents: ", len(self.parents))
