@@ -14,6 +14,7 @@ class MainWin(QWidget):
     def __init__(self):
         super(MainWin, self).__init__()
         self.load_ui()
+        self.setWindowTitle("SOFCO - project number 2")
 
     def findButtonClick(self):
         wantedResult = int(self.ui.wantedLine.text())
