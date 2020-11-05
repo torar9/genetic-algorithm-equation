@@ -7,7 +7,7 @@ class GeneticAlgorithm():
     parents = []
 
     def __init__(self, wantedResult: int, population: int, parentLen: int, mutationRate: int, mutationChance: int):
-        self.wantedResult = wantedResult
+        self.wantedResult = abs(wantedResult)
         self.population = population
         self.parentLen = parentLen
         self.matePos = 1
@@ -16,7 +16,7 @@ class GeneticAlgorithm():
 
     def generatePopulation(self):
         for i in range(self.population):
-            self.chromosomes.append(Chromosome(rnd.randint(0, 100), rnd.randint(0, 100), rnd.randint(0, 100)))
+            self.chromosomes.append(Chromosome(rnd.randint(0, self.wantedResult), rnd.randint(0, self.wantedResult), rnd.randint(0, self.wantedResult)))
 
     def calculateObjectiveValues(self):
         for e in self.chromosomes:

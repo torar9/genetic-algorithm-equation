@@ -1,34 +1,38 @@
-from GeneticAlgorithm import GeneticAlgorithm
-from Chromosome import Chromosome
-from decimal import *
+# This Python file uses the following encoding: utf-8
+import sys
+import os
 
-wantedResult = 38
-population = 6
-parentLen = 6
-mutationRate = 3
-mutationChance = 10
+from PySide2 import QtCore
+from PySide2.QtWidgets import QApplication, QWidget, QPushButton, QLineEdit
+from PySide2.QtCore import QFile
+from PySide2.QtUiTools import QUiLoader
 
-alg = GeneticAlgorithm(wantedResult, population, parentLen, mutationRate, mutationChance)
-alg.generatePopulation()
 
-result: Chromosome
-generation = 0
-while True:
-    generation += 1
-    print("Generation: ", generation)
-    alg.calculateObjectiveValues()
-    alg.calculateFitnessValues()
+class MainWin(QWidget):
+    def __init__(self):
+        super(MainWin, self).__init__()
+        self.load_ui()
 
-    alg.printChromosomes()
-    print()
-    alg.doRouleteWheel()
-    # alg.printParents()
+    def findButtonClick(self):
+        population = int(self.ui.populationLine.text())
+        wanted = int(self.ui.wantedLine.text())
+        print("pop: ", population)
+        print("want: ", wanted)
 
-    alg.doCrossOverAndMutate()
-    result = alg.checkIfFinished()
-    if result is not None:
-        break
+    def load_ui(self):
+        loader = QUiLoader()
+        path = os.path.join(os.path.dirname(__file__), "form.ui")
+        ui_file = QFile(path)
+        ui_file.open(QFile.ReadOnly)
+        self.ui: QWidget = loader.load(ui_file, self)
+        ui_file.close()
 
-print("%d + %d + %d = %d" %(result.a, result.b, result.c, wantedResult))
+        self.ui.findButton.clicked.connect(self.findButtonClick)
 
-print("End")
+
+if __name__ == "__main__":
+    QtCore.QCoreApplication.setAttribute(QtCore.Qt.AA_ShareOpenGLContexts)
+    app = QApplication([])
+    widget = MainWin()
+    widget.show()
+    sys.exit(app.exec_())
