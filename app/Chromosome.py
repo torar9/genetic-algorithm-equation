@@ -1,4 +1,4 @@
-from decimal import *
+from decimal import Decimal
 
 class Chromosome:
     def __init__(self, a, b, c):
