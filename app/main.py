@@ -21,6 +21,7 @@ class MainWin(QWidget):
         population = int(self.ui.populationLine.text())
         parentLen = population
         mutationRate = float(self.ui.mutationLine.text())
+        self.ui.logField.setText("")
 
         alg = GeneticAlgorithm(wantedResult, population, parentLen, mutationRate)
         alg.generatePopulation()
@@ -31,7 +32,7 @@ class MainWin(QWidget):
         generation = 0
         while True:
             generation += 1
-            print("Generation: ", generation)
+            #print("Generation: ", generation)
             alg.doRouleteWheel()
 
             alg.doCrossOverAndMutate()
