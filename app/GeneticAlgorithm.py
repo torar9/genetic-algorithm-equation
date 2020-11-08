@@ -91,5 +91,5 @@ class GeneticAlgorithm():
     def getChromosomesString(self):
         result = ""
         for e in self.chromosomes:
-            result += ("a: %03d b: %03d c: %03d obj: %3d fitt: %.3f prop: %.3f propStart: %.3f propEnd: %.3f \n" %(e.a, e.b, e.c, e.objValue, e.fitValue, e.propability, e.propStart, e.propEnd))
+            result += ("a: %03d  b: %03d  c: %03d  obj: %03d  fitt: %.3f  prop: %.3f  propStart: %.3f  propEnd: %.3f \n" %(e.a, e.b, e.c, e.objValue, e.fitValue, e.propability, e.propStart, e.propEnd))
         return result

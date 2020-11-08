@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>901</width>
-    <height>410</height>
+    <width>944</width>
+    <height>413</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -21,7 +21,7 @@
     <rect>
      <x>10</x>
      <y>10</y>
-     <width>881</width>
+     <width>921</width>
      <height>391</height>
     </rect>
    </property>
@@ -86,7 +86,7 @@
        <string>6</string>
       </property>
       <property name="maxLength">
-       <number>3</number>
+       <number>9</number>
       </property>
       <property name="placeholderText">
        <string>Number</string>
@@ -102,7 +102,7 @@
        </size>
       </property>
       <property name="text">
-       <string/>
+       <string>Result: a + b +c = x</string>
       </property>
      </widget>
     </item>
@@ -119,9 +119,12 @@
        <widget class="QTextEdit" name="logField">
         <property name="maximumSize">
          <size>
-          <width>600</width>
+          <width>640</width>
           <height>400</height>
          </size>
+        </property>
+        <property name="lineWidth">
+         <number>2</number>
         </property>
         <property name="readOnly">
          <bool>true</bool>

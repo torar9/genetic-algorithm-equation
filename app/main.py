@@ -3,7 +3,7 @@ import sys
 import os
 
 from decimal import Decimal
-from PySide2 import QtCore
+from PySide2 import QtCore, QtGui
 from PySide2.QtWidgets import QApplication, QWidget, QLineEdit
 from PySide2.QtCore import QFile
 from PySide2.QtUiTools import QUiLoader
@@ -18,6 +18,14 @@ class MainWin(QWidget):
 
     def findButtonClick(self):
         wantedResult = int(self.ui.wantedLine.text())
+
+        if wantedResult > 765:
+            wantedResult = 765
+            self.ui.wantedLine.setText("765")
+        if wantedResult < 0:
+            self.ui.wantedLine.setText("0")
+            wantedResult = 0
+
         population = int(self.ui.populationLine.text())
         parentLen = population
         mutationRate = float(self.ui.mutationLine.text())
@@ -48,7 +56,7 @@ class MainWin(QWidget):
             if result is not None:
                 break
 
-        self.ui.resultLabel.setText("result: %d + %d + %d = %d" %(result.a, result.b, result.c, wantedResult))
+        self.ui.resultLabel.setText("Result: %d + %d + %d = %d" %(result.a, result.b, result.c, wantedResult))
 
     def load_ui(self):
         loader = QUiLoader()
@@ -59,6 +67,13 @@ class MainWin(QWidget):
         ui_file.close()
 
         self.ui.findButton.clicked.connect(self.findButtonClick)
+
+        self.onlyIntWanted = QtGui.QIntValidator()
+        self.onlyIntPopulation = QtGui.QIntValidator()
+        self.onlyIntWanted.setRange(0, 765)
+        self.ui.wantedLine.setValidator(self.onlyIntWanted)
+        self.ui.populationLine.setValidator(self.onlyIntPopulation)
+
 
 
 if __name__ == "__main__":
