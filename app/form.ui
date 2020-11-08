@@ -102,7 +102,7 @@
        </size>
       </property>
       <property name="text">
-       <string>Result: a + b +c = x</string>
+       <string>Result: a + b + c = x</string>
       </property>
      </widget>
     </item>
